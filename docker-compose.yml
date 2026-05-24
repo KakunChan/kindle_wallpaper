@@ -1,0 +1,23 @@
+services:
+  kindle-weather:
+    build: .
+    container_name: kindle-weather
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:8080"
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "8080"
+      LATITUDE: "${LATITUDE:-30.2741}"
+      LONGITUDE: "${LONGITUDE:-120.1551}"
+      LOCATION_NAME: "${LOCATION_NAME:-杭州市西湖区}"
+      TIMEZONE: "${TIMEZONE:-Asia/Shanghai}"
+      WEATHER_API_URL: "${WEATHER_API_URL:-http://api.open-meteo.com/v1/forecast}"
+      AIR_QUALITY_API_URL: "${AIR_QUALITY_API_URL:-http://air-quality-api.open-meteo.com/v1/air-quality}"
+      UNITS: "${UNITS:-metric}"
+      PAGE_REFRESH_SECONDS: "${PAGE_REFRESH_SECONDS:-60}"
+      WEATHER_CACHE_SECONDS: "${WEATHER_CACHE_SECONDS:-900}"
+      REQUEST_TIMEOUT_SECONDS: "${REQUEST_TIMEOUT_SECONDS:-10}"
+      FORECAST_DAYS: "${FORECAST_DAYS:-3}"
+      KINDLE_WIDTH: "${KINDLE_WIDTH:-600}"
+      KINDLE_HEIGHT: "${KINDLE_HEIGHT:-700}"

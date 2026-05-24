@@ -1,0 +1,7 @@
+.git
+.agents
+.codex
+__pycache__
+*.pyc
+.env
+README.md
